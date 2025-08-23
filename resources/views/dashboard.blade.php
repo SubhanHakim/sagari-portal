@@ -6,8 +6,12 @@
                     <x-application-logo class="w-20 h-20" />
                     <div class="flex flex-col items-center">
                         <h2>Nama Aplikasi</h2>
-                        <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, fuga maiores voluptatibus ullam, optio animi in cupiditate saepe omnis, nisi amet neque officiis deserunt incidunt a? Iste blanditiis reiciendis quis!</h2>
+                        <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, fuga
+                            maiores voluptatibus ullam, optio animi in cupiditate saepe omnis, nisi amet neque officiis
+                            deserunt incidunt a? Iste blanditiis reiciendis quis!</h2>
                     </div>
+                    <div class="h-0.5 rounded-full w-full bg-gray-200"></div>
+                    <a href="{{ route('sso.app') }}">Masuk ke Aplikasi</a>
                 </div>
             </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -15,8 +19,12 @@
                     <x-application-logo class="w-20 h-20" />
                     <div class="flex flex-col items-center">
                         <h2>Nama Aplikasi</h2>
-                        <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, fuga maiores voluptatibus ullam, optio animi in cupiditate saepe omnis, nisi amet neque officiis deserunt incidunt a? Iste blanditiis reiciendis quis!</h2>
+                        <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, fuga
+                            maiores voluptatibus ullam, optio animi in cupiditate saepe omnis, nisi amet neque officiis
+                            deserunt incidunt a? Iste blanditiis reiciendis quis!</h2>
                     </div>
+                    <div class="h-0.5 rounded-full w-full bg-gray-200"></div>
+                    <a href="#">https://linkaplikasi.com</a>
                 </div>
             </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -24,8 +32,12 @@
                     <x-application-logo class="w-20 h-20" />
                     <div class="flex flex-col items-center">
                         <h2>Nama Aplikasi</h2>
-                        <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, fuga maiores voluptatibus ullam, optio animi in cupiditate saepe omnis, nisi amet neque officiis deserunt incidunt a? Iste blanditiis reiciendis quis!</h2>
+                        <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, fuga
+                            maiores voluptatibus ullam, optio animi in cupiditate saepe omnis, nisi amet neque officiis
+                            deserunt incidunt a? Iste blanditiis reiciendis quis!</h2>
                     </div>
+                    <div class="h-0.5 rounded-full w-full bg-gray-200"></div>
+                    <a href="#">https://linkaplikasi.com</a>
                 </div>
             </div>
         </div>
