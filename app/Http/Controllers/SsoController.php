@@ -62,11 +62,11 @@ class SsoController extends Controller
         $encryptedPayload = $encrypter->encryptString(
             json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
         );
-
+        
         $response = Http::withHeaders([
             'X-Payload'   => $encryptedPayload,
             'Accept'      => 'application/json',
-        ])->post("http://127.0.0.1:8000/api/login/portal");
+        ])->post(env('API_PORTAL_WEB'));
 
         
 
