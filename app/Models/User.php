@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Notifications\ResetPassword;
+
 
 class User extends Authenticatable
 {
@@ -48,6 +50,12 @@ class User extends Authenticatable
         ];
     }
 
+    public function hasRole($roles)
+    {
+        $roles = is_array($roles) ? $roles : [$roles];
+        return in_array(strtolower($this->role->name ?? ''), array_map('strtolower', $roles));
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -56,5 +64,10 @@ class User extends Authenticatable
     public function position()
     {
         return $this->belongsTo(Position::class);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }
