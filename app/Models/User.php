@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Str;
 
 
 class User extends Authenticatable
@@ -69,5 +70,12 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
+    }
+
+    protected static function booted()
+    {
+        static::creating(function ($u) {
+            $u->global_id ??= (string) \Illuminate\Support\Str::uuid();
+        });
     }
 }
