@@ -16,12 +16,40 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @auth
-                        @if (auth()->user()->hasRole('admin'))
+                        @if (auth()->user()->getRoleNames()->contains('admin'))
                             <x-nav-link :href="route('admin.users.create')" :active="request()->routeIs('admin.users.create')" class="text-gray-700 dark:text-gray-200">
                                 Create User
                             </x-nav-link>
                         @endif
                     @endauth
+
+                    <div class="hidden sm:flex sm:items-center sm:ms-6">
+                        <x-dropdown align="left" width="48">
+                            <x-slot name="trigger">
+                                <button
+                                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900 hover:text-gray-700 dark:hover:text-indigo-300 focus:outline-none transition ease-in-out duration-150">
+                                    User
+                                    <svg class="ml-2 h-4 w-4 text-gray-500 dark:text-gray-300" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('dashboard.users.index')" class="dark:text-gray-200">
+                                    User
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('dashboard.roles.index')" class="dark:text-gray-200">
+                                    Role
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('dashboard.positions.index')" class="dark:text-gray-200">
+                                    Position
+                                </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
                 </div>
             </div>
 

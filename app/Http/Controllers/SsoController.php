@@ -21,7 +21,7 @@ class SsoController extends Controller
         $sessionData = [
             'user_id'    => $user->id,
             'user_name'  => $user->name,
-            'role_id'    => $user->role_id,
+            'role'    => $user->role,
             'role_name'  => $user->role->name ?? null,
             'position'   => $user->position ?? null,
             'jabatan'    => $user->jabatan ?? null,

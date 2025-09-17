@@ -3,17 +3,21 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Filament\Models\Contracts\FilamentUser;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 use Str;
 
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +25,6 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'role_id',
         'position_id',
         'name',
         'email',
@@ -51,12 +54,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function hasRole($roles)
-    {
-        $roles = is_array($roles) ? $roles : [$roles];
-        return in_array(strtolower($this->role->name ?? ''), array_map('strtolower', $roles));
-    }
-
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -77,5 +74,11 @@ class User extends Authenticatable
         static::creating(function ($u) {
             $u->global_id ??= (string) \Illuminate\Support\Str::uuid();
         });
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // Bebas: pakai role 'admin' atau permission 'app.admin.access'
+        return $this->hasRole('admin') || $this->can('app.admin.access');
     }
 }

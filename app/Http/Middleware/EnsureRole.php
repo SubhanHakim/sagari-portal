@@ -10,7 +10,7 @@ class EnsureRole
 {
     public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (!Auth::check() || !Auth::user()->hasRole($roles)) {
+        if (!Auth::check() || !Auth::user()->getRoleNames()->intersect($roles)->isNotEmpty()) {
             abort(403);
         }
         return $next($request);

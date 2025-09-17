@@ -3,14 +3,14 @@
         class="py-8 bg-gradient-to-br from-indigo-100 via-blue-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             @if (session('status'))
-                <div
+                <adiv
                     class="mb-4 p-4 rounded-lg bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 shadow">
                     <svg class="inline-block w-5 h-5 mr-2 text-green-500 dark:text-green-300" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                     {{ session('status') }}
-                </div>
+                </adiv>
             @endif
 
             <div

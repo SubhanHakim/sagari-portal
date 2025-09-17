@@ -17,8 +17,7 @@ class DualWriteUser
         $payload = [
             'name'        => $data['name'],
             'email'       => $data['email'],
-            'role_id'     => $data['role_id'],
-            'position_id' => $data['position_id'],
+            'position_id' => $data['position_id'] ?? null,
             'password'    => Hash::make(Str::random(32)),
             'global_id'   => (string) Str::uuid(),
             'created_at'  => $now,
