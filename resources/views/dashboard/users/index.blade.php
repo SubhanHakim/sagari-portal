@@ -149,7 +149,7 @@
                                     <td class="px-6 py-4 text-center">
                                         <div class="flex items-center justify-center gap-2">
                                             <!-- Edit -->
-                                            <a href="#"
+                                            <a href="{{ route('dashboard.users.edit', $user) }}"
                                                 class="inline-flex items-center px-2 py-1 rounded hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition"
                                                 title="Edit">
                                                 <svg class="w-5 h-5 text-indigo-600 dark:text-indigo-300" fill="none"
@@ -160,7 +160,7 @@
                                                 </svg>
                                             </a>
                                             <!-- Delete -->
-                                            <form method="POST" action="#"
+                                            <form method="POST" action="{{ route('dashboard.users.destroy', $user) }}"
                                                 onsubmit="return confirm('Yakin ingin hapus user ini?')" class="inline">
                                                 @csrf
                                                 @method('DELETE')

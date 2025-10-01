@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/logo_sagari.svg') }}" class="h-9 w-auto" alt="Sagari">
+                        <img src="{{ asset('images/3.png') }}" class="w-40" alt="Sagari">
                     </a>
                 </div>
 
@@ -15,12 +15,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-gray-700 dark:text-gray-200">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
                     @auth
-                        @if (auth()->user()->getRoleNames()->contains('admin'))
+                        @can('create')
                             <x-nav-link :href="route('admin.users.create')" :active="request()->routeIs('admin.users.create')" class="text-gray-700 dark:text-gray-200">
                                 Create User
                             </x-nav-link>
-                        @endif
+                        @endcan
                     @endauth
 
                     <div class="hidden sm:flex sm:items-center sm:ms-6">
